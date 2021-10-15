@@ -7,12 +7,12 @@
 
 class fruit
 {
-    std::string f_name_;
     std::string f_color_;
+    std::string f_name_;
 
 public:
-    fruit(const std::string name, const std::string color)
-        : f_name_(name), f_color_(color)
+    fruit(const std::string color = "", const std::string name = "")
+        : f_color_(color), f_name_(name)
     {
     }
     
@@ -25,7 +25,7 @@ public:
 class banana : public fruit
 {
 public:
-    banana(): fruit("Banana", "yellow")
+    banana(): fruit("yellow", "Banana")
     {
     }
 };
@@ -34,16 +34,16 @@ public:
 class apple : public fruit
 {
 public:
-    apple(): fruit("Apple", "red")
+    apple(const std::string color = "green", const std::string name = "" ): fruit(color, name + "apple")
     {
     }
 };
 
-// TODO Доделать этот сорт :) (Через расширение функционала - изменение метода базового класса)
+
 class granny_smith : public apple
 {
 public:
-    granny_smith(): apple()
+    granny_smith(const std::string color = "green", const std::string name = "Granny Smith "): apple(color, name)
     {
         
     }
