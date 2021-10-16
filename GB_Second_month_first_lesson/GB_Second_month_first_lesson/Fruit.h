@@ -1,10 +1,6 @@
 ﻿#pragma once
 #include <string>
 
-/*Создать классы Apple (яблоко) и Banana (банан), которые наследуют класс Fruit (фрукт).
-*У Fruit есть две переменные-члена: name (имя) и color (цвет).
-*Добавить новый класс GrannySmith, который наследует класс Apple.*/
-
 class fruit
 {
     std::string f_color_;
@@ -22,32 +18,39 @@ public:
 };
 
 
+class apple: public fruit
+{
+    protected: 
+    apple(std::string name, std::string color)
+        : fruit(name, color)
+    {
+    }
+ 
+public:
+    apple(std::string color="red")
+        : fruit("apple", color)
+    {
+    }
+};
+ 
 class banana : public fruit
 {
 public:
-    banana(): fruit("yellow", "Banana")
+    banana()
+        : fruit("banana", "yellow")
     {
+ 
     }
 };
-
-
-class apple : public fruit
-{
-public:
-    apple(const std::string color = "green", const std::string name = "" ): fruit(color, name + "apple")
-    {
-    }
-};
-
-
+ 
 class granny_smith : public apple
 {
 public:
-    granny_smith(const std::string color = "green", const std::string name = "Granny Smith "): apple(color, name)
+    granny_smith()
+        : apple("Granny Smith apple", "green")
     {
-        
+ 
     }
 };
-
 
 
